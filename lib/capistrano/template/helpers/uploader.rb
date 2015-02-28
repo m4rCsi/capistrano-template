@@ -13,13 +13,13 @@ module Capistrano
                       :remote_handler,
                       :mode_test_cmd
 
-        def initialize(full_to_path, remote_handler,
-            mode: 0640,
-            mode_test_cmd: nil,
-            digest: nil,
-            digest_cmd: nil,
-            io: nil
-        )
+        def initialize(full_to_path, remote_handler, params = {})
+          mode =             params[:mode] || 0640
+          mode_test_cmd =    params[:mode_test_cmd]
+          digest =           params[:digest]
+          digest_cmd =       params[:digest_cmd]
+          io =               params[:io]
+
           self.remote_handler = remote_handler
 
           self.full_to_path = full_to_path

@@ -48,7 +48,7 @@ module Capistrano
 
         end
 
-        let(:tmp_folder) { File.join(__dir__, '..', '..', '..', 'tmp') }
+        let(:tmp_folder) { File.join(File.dirname(__FILE__), '..', '..', '..', 'tmp') }
 
         let(:rendered_template_content) { 'my -- content' }
         let(:as_io) { StringIO.new(rendered_template_content) }

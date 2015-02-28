@@ -6,4 +6,4 @@ extend Capistrano::Template::Helpers::DSL
 
 SSHKit::Backend::Netssh.send(:include, Capistrano::Template::Helpers::DSL)
 
-import File.join(__dir__, 'template', 'tasks', 'template_defaults.rake')
+import File.join(File.dirname(__FILE__), 'template', 'tasks', 'template_defaults.rake')

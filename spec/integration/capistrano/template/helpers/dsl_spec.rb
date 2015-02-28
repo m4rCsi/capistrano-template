@@ -72,7 +72,7 @@ module Capistrano
 
         let(:template_name) { 'my_template.erb' }
 
-        let(:tmp_folder) { File.join(__dir__, '..', '..', '..', 'tmp') }
+        let(:tmp_folder) { File.join(File.dirname(__FILE__), '..', '..', '..', 'tmp') }
 
         let(:template_content) { '<%=var1%> -- <%=var2%>' }
         let(:expected_content) { 'my -- content' }

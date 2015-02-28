@@ -4,11 +4,11 @@ module Capistrano
       class Renderer < SimpleDelegator
         attr_accessor :from, :reader
 
-        def initialize(from, context, reader: File)
+        def initialize(from, context, params = {})
           super context
 
           self.from = from
-          self.reader = reader
+          self.reader = params[:reader] || File
         end
 
         def as_str

@@ -8,7 +8,7 @@ module Capistrano
           PathsLookup.new(lookup_paths, context)
         end
 
-        let(:tmp_folder) { File.join(__dir__, '..', '..', '..', 'tmp') }
+        let(:tmp_folder) { File.join(File.dirname(__FILE__), '..', '..', '..', 'tmp') }
 
         let(:lookup_paths) { ["#{tmp_folder}/%<host>s", "#{tmp_folder}"] }
         let(:context) { OpenStruct.new(host: 'localhost') }

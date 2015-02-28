@@ -10,13 +10,14 @@ module Capistrano
 
           template = _template_factory.call(template_file(from), self, fetch(:templating_digster))
 
-          _uploader_factory.call(to, self,
-                                 digest: template.digest,
-                                 digest_cmd: fetch(:templating_digest_cmd),
-                                 mode_test_cmd: fetch(:templating_mode_test_cmd),
-                                 mode: mode,
-                                 io: template.as_io
-                                ).call
+          params = {digest:         template.digest,
+                    digest_cmd:     fetch(:templating_digest_cmd),
+                    mode_test_cmd:  fetch(:templating_mode_test_cmd),
+                    mode:           mode,
+                    io:             template.as_io
+                }
+
+          _uploader_factory.call(to, self, params).call
         end
 
         def template_exists?(template)

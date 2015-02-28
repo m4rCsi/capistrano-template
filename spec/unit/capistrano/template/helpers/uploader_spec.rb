@@ -9,11 +9,13 @@ module Capistrano
           Uploader.new(
               remote_filename_expented,
               upload_handler,
-              mode: 0640,
-              mode_test_cmd: mode_test_cmd,
-              digest: digest,
-              digest_cmd: digest_cmd,
-              io: as_io
+              {
+                mode: 0640,
+                mode_test_cmd: mode_test_cmd,
+                digest: digest,
+                digest_cmd: digest_cmd,
+                io: as_io
+              }
           )
         end
 
